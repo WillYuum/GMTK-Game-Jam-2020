@@ -58,8 +58,10 @@ func _input(event: InputEvent) -> void:
 
 func HandleMovingPlayableCharacter(event:InputEvent):
 	if(canSelectCharacters == false): return;
-	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_E:
+	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_TAB:
 		SelectNextCharacterToFuze();
+	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_E:
+		ghost.FuseWithCharacter(currentPlayableCharacter);
 
 
 func GhostTookCharacter():

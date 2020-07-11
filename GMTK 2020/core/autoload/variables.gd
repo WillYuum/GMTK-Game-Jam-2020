@@ -16,3 +16,5 @@ var delayTillCharacterFreakOut = 4;
 var timeSpikeStaysUp = 2;
 var timeToShowSpike = 4;
 
+#Character switching
+var ghostSwitchCharacterSpeed = 0.25;
