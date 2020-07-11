@@ -15,6 +15,7 @@ var currentLevel = 1;
 #for character selection
 var currentPlayableCharacter = null;
 var currentIndexToSelectCharacter = 0;
+var canSelectCharacters = false;
 
 #Win variables
 var amountOfCharactersInMap;
@@ -32,13 +33,12 @@ func _ready() -> void:
 #	pass
 
 func StartGame():
+	mapController.ReadyUpMap();
 	currentPlayableCharacter = null;
 	amountCharacterTaken = 0;
 	amountOfCharactersInMap = mapController.GetAmountOfCharactersInMap();
-	mapController.ReadyUpMap();
 	yield(get_tree().create_timer(2), "timeout");
 	ghost.EnterGhostToMap();
-	SelectCharacter(currentIndexToSelectCharacter);
 	pass
 
 func WinGame():
@@ -46,17 +46,20 @@ func WinGame():
 	StartGame();
 
 func LostGame():
+	LeavetFuzeMode();
 	RestartGame();
 
 func RestartGame():
 	mapController.RestartMapEntities();
 
 func _input(event: InputEvent) -> void:
-	HandleMovingPlayableCharacter();
+	HandleMovingPlayableCharacter(event);
 
 
-func HandleMovingPlayableCharacter():
-	pass
+func HandleMovingPlayableCharacter(event:InputEvent):
+	if(canSelectCharacters == false): return;
+	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_E:
+		SelectNextCharacterToFuze();
 
 
 func GhostTookCharacter():
@@ -76,11 +79,27 @@ func StartSelectingCharacters():
 
 func SelectCharacter(index:int):
 	currentPlayableCharacter = mapController.amountOfCharactersInMap[index];
+	currentPlayableCharacter.DisplaySelectedCharacter();
 
 func SelectNextCharacterToFuze():
 	if(currentPlayableCharacter != null):
 		currentPlayableCharacter.HideSelectedCharacter();
 	currentIndexToSelectCharacter += 1;
+	
+	#ignore character that is controlled
+	if(currentPlayableCharacter.isControlled):
+		currentIndexToSelectCharacter += 1;
+	
+	if(currentIndexToSelectCharacter >= mapController.amountOfCharactersInMap.size()):
+		currentIndexToSelectCharacter = 0;
+	SelectCharacter(currentIndexToSelectCharacter);
 
 func _on_TextureButton_pressed() -> void:
 	get_tree().quit();
+
+func EnterFuzeMode():
+	canSelectCharacters = true;
+	SelectCharacter(currentIndexToSelectCharacter);
+
+func LeavetFuzeMode():
+	canSelectCharacters = false;

@@ -7,6 +7,8 @@ onready var selectIndicator := get_node("SelectIndicator");
 var characterSpeed = Variables.characterBaseSpeed;
 var _delayTillFreakOut:Timer = Timer.new();
 
+var isControlled = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_child(_delayTillFreakOut);

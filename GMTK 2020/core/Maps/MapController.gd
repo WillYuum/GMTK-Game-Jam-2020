@@ -16,20 +16,21 @@ func _ready() -> void:
 #	pass
 
 func ReadyUpMap():
-	GoToNextMap();
+	SpawnMap();
 
 func GetAmountOfCharactersInMap():
 	if(amountOfCharactersInMap.size() > 0):
 		amountOfCharactersInMap.clear();
-	amountOfCharactersInMap = get_node("Map1/CharactersInMap").get_children();
+	amountOfCharactersInMap = currentMap.get_node("CharactersInMap").get_children();
 
 func GoToNextMap():
-	if(currentMap != null):
-		currentMap.queue_free();
 	SpawnMap();
 
 func SpawnMap():
+	if(currentMap != null):
+		currentMap.queue_free();
 	var newMap = Resources.maps[mainScene.currentLevel - 1].instance();
+	currentMap = newMap;
 	add_child(newMap);
 
 func RestartMapEntities():
