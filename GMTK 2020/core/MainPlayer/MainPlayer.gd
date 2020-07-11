@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var mainScene := get_tree().get_root().get_node("MainScene");
+onready var animPlayer:AnimationPlayer = get_node("AnimationPlayer");
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +12,9 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 #	pass
 
+func EnterGhostToMap():
+	self.show();
+	animPlayer.play("GhostEntry");
 
 func _fuseWithCharacter(characterToFuse):
 	mainScene.currentPlayableCharacter = characterToFuse;

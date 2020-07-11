@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Core/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://gameObjects/Maps/MainMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gameObjects/MainPlayer/MainPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gameObjects/MainPlayer/GhostEntry.tres" type="Animation" id=4]
+[ext_resource path="res://assets/testAssets/Exit Button.png" type="Texture" id=5]
 
 [node name="MainScene" type="Control"]
 anchor_right = 1.0
@@ -20,6 +23,13 @@ margin_right = 6.10352e-05
 margin_bottom = 540.0
 rect_scale = Vector2( 0.567883, 0.567883 )
 
+[node name="MainPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1986.91, 233.302 )
+scale = Vector2( 0.116528, 0.116528 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainPlayer"]
+anims/GhostEntry = ExtResource( 4 )
+
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,3 +37,17 @@ margin_right = 0.00012207
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureButton" type="TextureButton" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -217.0
+margin_top = 49.0
+margin_right = -50.0001
+margin_bottom = 152.0
+texture_normal = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UI/TextureButton" to="." method="_on_TextureButton_pressed"]
