@@ -15,18 +15,12 @@ _global_script_classes=[ {
 "path": "res://core/Characters/Characters.gd"
 }, {
 "base": "Control",
-"class": "MainScene",
-"language": "GDScript",
-"path": "res://core/MainScene.gd"
-}, {
-"base": "Control",
 "class": "MapController",
 "language": "GDScript",
 "path": "res://core/Maps/MapController.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
-"MainScene": "",
 "MapController": ""
 }
 
