@@ -1,5 +1,5 @@
 extends Control
-class_name MapController
+#class_name MapController
 
 onready var mainScene = get_tree().get_root().get_node("MainScene");
 onready var currentMap := get_node("Map1");
