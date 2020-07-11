@@ -1,7 +1,8 @@
 extends Control
+class_name MainScene
 
 onready var camera :Camera2D = get_node("Camera2D");
-
+onready var mapController:MapController = get_node("MainMap");
 
 #UI
 onready var UI := get_node("UI");
@@ -27,4 +28,4 @@ func LostGame():
 	RestartGame();
 
 func RestartGame():
-	pass;
+	mapController.RestartMapEntities();
