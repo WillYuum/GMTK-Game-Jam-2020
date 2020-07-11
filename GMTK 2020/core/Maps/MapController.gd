@@ -1,7 +1,7 @@
 extends Control
 class_name MapController
 
-onready var mainScene:MainScene = get_tree().get_root().get_node("MainScene");
+onready var mainScene = get_tree().get_root().get_node("MainScene");
 onready var currentMap := get_node("Map1");
 
 # Called when the node enters the scene tree for the first time.

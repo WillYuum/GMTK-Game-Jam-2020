@@ -1,6 +1,7 @@
 extends Node2D
 
 
+var currentFusedCharacter:Character;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,3 +11,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
+
+
+func _fuseWithCharacter(characterToFuse):
+	currentFusedCharacter = characterToFuse;
+
+func _on_Area2D_area_entered(area: Area2D) -> void:
+	var body = area.get_parent();
+	if(body is Character):
+		_fuseWithCharacter(body);

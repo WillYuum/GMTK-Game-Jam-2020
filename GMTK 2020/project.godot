@@ -8,14 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Character",
+"language": "GDScript",
+"path": "res://core/Characters/Characters.gd"
+}, {
+"base": "Control",
+"class": "MainScene",
+"language": "GDScript",
+"path": "res://core/MainScene.gd"
+}, {
+"base": "Control",
+"class": "MapController",
+"language": "GDScript",
+"path": "res://core/Maps/MapController.gd"
+} ]
 _global_script_class_icons={
-
+"Character": "",
+"MainScene": "",
+"MapController": ""
 }
 
 [application]
 
 config/name="GMTK 2020"
+run/main_scene="res://gameObjects/MainScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -27,6 +45,7 @@ Resources="*res://core/autoload/resources.gd"
 
 window/size/width=1920
 window/size/height=1080
+window/stretch/mode="2d"
 
 [rendering]
 
