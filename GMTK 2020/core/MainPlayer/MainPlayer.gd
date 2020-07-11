@@ -1,7 +1,6 @@
 extends Node2D
 
-
-var currentFusedCharacter:Character;
+onready var mainScene := get_tree().get_root().get_node("MainScene");
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +13,11 @@ func _ready() -> void:
 
 
 func _fuseWithCharacter(characterToFuse):
-	currentFusedCharacter = characterToFuse;
+	mainScene.currentPlayableCharacter = characterToFuse;
+
+func DefuseWithCharacter():
+	if(mainScene.currentPlayableCharacter == null):return
+	mainScene.currentPlayableCharacter = null
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
 	var body = area.get_parent();
