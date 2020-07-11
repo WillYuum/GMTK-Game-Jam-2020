@@ -4,7 +4,7 @@ extends Control
 onready var mainScene = get_tree().get_root().get_node("MainScene");
 onready var currentMap := get_node("Map1");
 
-var amountOfCharactersInMap;
+var amountOfCharactersInMap = [];
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +19,8 @@ func ReadyUpMap():
 	GoToNextMap();
 
 func GetAmountOfCharactersInMap():
-	amountOfCharactersInMap.clear();
+	if(amountOfCharactersInMap.size() > 0):
+		amountOfCharactersInMap.clear();
 	amountOfCharactersInMap = get_node("Map1/CharactersInMap").get_children();
 
 func GoToNextMap():
@@ -28,7 +29,7 @@ func GoToNextMap():
 	SpawnMap();
 
 func SpawnMap():
-	var newMap = Resources.maps[mainScene.currentLevel].instance();
+	var newMap = Resources.maps[mainScene.currentLevel - 1].instance();
 	add_child(newMap);
 
 func RestartMapEntities():
