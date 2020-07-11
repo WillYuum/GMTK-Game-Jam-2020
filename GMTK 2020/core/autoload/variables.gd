@@ -4,9 +4,10 @@ extends Node
 func _ready() -> void:
 	pass # Replace with function body.
 
-
+#Characters
 var characterBaseSpeed = 5;
 var characterSlowBaseSpeed = 3;
+var delayTillCharacterFreakOut = 4;
 
 #Obstacles(Spike)
 var timeSpikeStaysUp = 2;
