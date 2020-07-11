@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Core/MainScene.gd" type="Script" id=1]
+[ext_resource path="res://gameObjects/Maps/MainMap.tscn" type="PackedScene" id=2]
+
+[node name="MainScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.00012207
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+
+[node name="MainMap" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 6.10352e-05
+margin_top = 540.0
+margin_right = 6.10352e-05
+margin_bottom = 540.0
+rect_scale = Vector2( 0.567883, 0.567883 )
