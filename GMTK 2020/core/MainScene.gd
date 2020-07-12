@@ -8,7 +8,8 @@ onready var ghost := get_node("MainPlayer");
 
 #UI
 onready var UI := get_node("UI");
-
+onready var loseScreen := UI.get_node("LoseScreen");
+onready var winScreen := UI.get_node("WinScreen");
 
 var currentLevel = 1;
 
@@ -23,6 +24,8 @@ var amountCharacterTaken;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	loseScreen.hide();
+	winScreen.hide();
 #	yield(get_tree().create_timer(2), "timeout");
 #	connect()
 	StartGame();
@@ -43,9 +46,15 @@ func StartGame():
 
 func WinGame():
 	currentLevel += 1;
+	winScreen.show();
+	yield(get_tree().create_timer(2),"timeout");
+	winScreen.hide();
 	StartGame();
 
 func LostGame():
+	loseScreen.show();
+	yield(get_tree().create_timer(2),"timeout");
+	loseScreen.hide();
 	LeavetFuzeMode();
 	RestartGame();
 

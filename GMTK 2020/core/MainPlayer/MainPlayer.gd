@@ -2,6 +2,7 @@ extends Node2D
 
 onready var mainScene := get_tree().get_root().get_node("MainScene");
 onready var animPlayer:AnimationPlayer = get_node("AnimationPlayer");
+onready var audioPlayer:AudioStreamPlayer = get_node("Ghost_Woosh");
 
 var _tween:Tween = Tween.new();
 
@@ -29,6 +30,7 @@ func EnterGhostToMap():
 func FuseWithCharacter(characterToFuse):
 	if(controlledChar != null):
 		controlledChar.isControlled = false;
+		self.global_transform.origin = controlledChar.global_transform.origin;
 	self.show();
 	if(_canFuzeWithCharacter == false):return;
 	_tween.interpolate_property(
@@ -41,6 +43,7 @@ func FuseWithCharacter(characterToFuse):
 		Tween.EASE_OUT
 	);
 	_tween.start();
+	audioPlayer.play(0);
 	_canFuzeWithCharacter = false
 	mainScene.currentPlayableCharacter = characterToFuse;
 	yield(get_tree().create_timer(Variables.ghostSwitchCharacterSpeed), "timeout");
