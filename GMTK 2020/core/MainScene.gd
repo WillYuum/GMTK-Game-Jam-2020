@@ -13,6 +13,7 @@ onready var loseAudio := get_node("LoseAudio");
 onready var UI := get_node("UI");
 onready var loseScreen := UI.get_node("LoseScreen");
 onready var winScreen := UI.get_node("WinScreen");
+onready var gameEndScreen := UI.get_node("GameEndScreen");
 
 var currentLevel = 1;
 
@@ -27,6 +28,7 @@ var amountCharacterTaken;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	gameEndScreen.hide();
 	loseScreen.hide();
 	winScreen.hide();
 	bgmMusic.play(0);
@@ -130,3 +132,10 @@ func EnterFuzeMode():
 func LeavetFuzeMode():
 	canSelectCharacters = false;
 
+
+
+func _on_Button_pressed() -> void:
+	get_tree().reload_current_scene();
+
+func _on_Button2_pressed() -> void:
+	get_tree().quit();

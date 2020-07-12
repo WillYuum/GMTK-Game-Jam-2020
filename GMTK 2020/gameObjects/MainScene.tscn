@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://core/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://gameObjects/Maps/MainMap.tscn" type="PackedScene" id=2]
@@ -11,6 +11,10 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
 font_data = ExtResource( 8 )
 
 [node name="MainScene" type="Control"]
@@ -118,6 +122,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameEndScreen" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/GameEndScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.352941, 0.329412, 0.329412, 0.254902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/GameEndScreen"]
+anchor_left = 0.498
+anchor_right = 0.498
+margin_left = -416.175
+margin_top = 161.997
+margin_right = 425.825
+margin_bottom = 238.997
+custom_fonts/font = SubResource( 1 )
+text = "You finished Game!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI/GameEndScreen"]
+margin_left = 507.991
+margin_top = 879.025
+margin_right = 825.991
+margin_bottom = 967.025
+custom_fonts/font = SubResource( 2 )
+text = "Play Again"
+
+[node name="Button2" type="Button" parent="UI/GameEndScreen"]
+margin_left = 1047.59
+margin_top = 882.921
+margin_right = 1365.59
+margin_bottom = 970.921
+custom_fonts/font = SubResource( 2 )
+text = "Exit"
+
 [node name="WinAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
@@ -126,3 +176,5 @@ stream = ExtResource( 7 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 [connection signal="pressed" from="UI/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="UI/GameEndScreen/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="UI/GameEndScreen/Button2" to="." method="_on_Button2_pressed"]

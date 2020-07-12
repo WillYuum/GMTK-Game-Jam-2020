@@ -30,6 +30,10 @@ func GoToNextMap():
 	SpawnMap();
 
 func SpawnMap():
+	print(mainScene.currentLevel, " ", Resources.maps.size())
+	if(mainScene.currentLevel-1 >=  Resources.maps.size() ):
+		mainScene.gameEndScreen.show()
+		return
 	if(currentMap != null):
 		currentMap.queue_free();
 	var newMap = Resources.maps[mainScene.currentLevel - 1].instance();
