@@ -14,11 +14,12 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 	var body = area.get_parent();
 	if(body is Character):
 		#call slow character down
-		body.SpeedCharaterUp();
+		body.SlowCharacterDown();
 
 
 func _on_Area2D_area_exited(area: Area2D) -> void:
 	var body = area.get_parent();
+	print(body.name)
 	if(body is Character):
 		#call speed character down
-		body.SlowCharacterDown();
+		body.SpeedCharaterUp();
