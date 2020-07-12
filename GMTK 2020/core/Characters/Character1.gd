@@ -8,8 +8,8 @@ extends Character
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass;
-#	GetReadyToFreakOut();
+	connect("freakOut", self, "SetCharaterSprite", [Resources.char1Sprite])
+	connect("control", self, "SetFreakOutSprite", [Resources.char1Sprite])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

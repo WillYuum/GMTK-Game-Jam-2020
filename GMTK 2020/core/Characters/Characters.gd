@@ -35,7 +35,7 @@ var freakOutDirection = Vector2()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(mainScene.gameIsOn == false):return;
-	if(mainScene.gameIsOn == false): return;
+	
 	if(isControlled):
 		HandleMovingCharacter(delta);
 		return
@@ -109,5 +109,11 @@ func HandleMovingCharacter(delta):
 	
 	velocity = speed * direction.normalized() * delta
 	move_and_collide(velocity)
+
+func SetCharaterSprite(characterProps):
+	get_node("Sprite").set_texture(characterProps.control);
+
+func SetFreakOutSprite(characterProps):
+	print(characterProps)
 	
-	
+	get_node("Sprite").set_texture(characterProps.freakOut);

@@ -34,11 +34,11 @@ func FuseWithCharacter(characterToFuse):
 	if(_canFuzeWithCharacter == false):return
 	mainScene.mapController.GetAmountOfCharactersInMap();
 	if(mainScene.mapController.amountOfCharactersInMap.size() <= 1): return
+	if(_canFuzeWithCharacter == false):return;
 	if(controlledChar != null or is_instance_valid(controlledChar)):
 		controlledChar.isControlled = false;
 		self.global_transform.origin = controlledChar.global_transform.origin;
 	self.show();
-	if(_canFuzeWithCharacter == false):return;
 	_tween.interpolate_property(
 		self,
 		"global_transform:origin",
@@ -55,6 +55,7 @@ func FuseWithCharacter(characterToFuse):
 	yield(get_tree().create_timer(Variables.ghostSwitchCharacterSpeed), "timeout");
 	controlledChar = characterToFuse;
 	controlledChar.isControlled = true;
+	controlledChar.emit_signal("control")
 	_canFuzeWithCharacter = true
 	self.hide();
 	mainScene.SelectNextCharacterToFuze()

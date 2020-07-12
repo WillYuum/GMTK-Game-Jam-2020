@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ghost Theme - loop.wav-7d60f3155c83a8e021b7202d0783a06b.sample"
+
+[deps]
+
+source_file="res://gameObjects/Ghost Theme - loop.wav"
+dest_files=[ "res://.import/Ghost Theme - loop.wav-7d60f3155c83a8e021b7202d0783a06b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

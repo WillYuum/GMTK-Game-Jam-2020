@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://core/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://gameObjects/Maps/MainMap.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/sfx/SFX_-_win.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/sfx/SFX_-_death.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/GothamBold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://gameObjects/Ghost Theme - loop.wav" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -175,6 +176,8 @@ stream = ExtResource( 6 )
 stream = ExtResource( 7 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 [connection signal="pressed" from="UI/TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/GameEndScreen/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="UI/GameEndScreen/Button2" to="." method="_on_Button2_pressed"]
