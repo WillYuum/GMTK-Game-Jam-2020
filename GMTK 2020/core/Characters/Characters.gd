@@ -92,7 +92,6 @@ func HandleMovingCharacter(delta):
 	else:
 		speed = 0;
 	
-	print(speed)
 	velocity = speed * direction.normalized() * delta
 	move_and_collide(velocity)
 	

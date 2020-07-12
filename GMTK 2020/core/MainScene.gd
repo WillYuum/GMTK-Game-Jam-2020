@@ -5,6 +5,9 @@ signal enterSelectMode;
 onready var camera :Camera2D = get_node("Camera2D");
 onready var mapController := get_node("MainMap");
 onready var ghost := get_node("MainPlayer");
+onready var bgmMusic := get_node("BGM");
+onready var winAudio := get_node("WinAudio");
+onready var loseAudio := get_node("LoseAudio");
 
 #UI
 onready var UI := get_node("UI");
@@ -26,6 +29,7 @@ var amountCharacterTaken;
 func _ready() -> void:
 	loseScreen.hide();
 	winScreen.hide();
+	bgmMusic.play(0);
 #	yield(get_tree().create_timer(2), "timeout");
 #	connect()
 	StartGame();
@@ -45,6 +49,7 @@ func StartGame():
 	pass
 
 func WinGame():
+	winAudio.play(0);
 	currentLevel += 1;
 	winScreen.show();
 	yield(get_tree().create_timer(2),"timeout");
@@ -52,6 +57,7 @@ func WinGame():
 	StartGame();
 
 func LostGame():
+	loseScreen
 	loseScreen.show();
 	yield(get_tree().create_timer(2),"timeout");
 	loseScreen.hide();
@@ -70,15 +76,17 @@ func HandleMovingPlayableCharacter(event:InputEvent):
 	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_TAB:
 		SelectNextCharacterToFuze();
 	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_E:
-		ghost.FuseWithCharacter(currentSelectedCharacter);
+		GhostFuzeWithChar();
 
+func GhostFuzeWithChar():
+	ghost.FuseWithCharacter(currentSelectedCharacter);
 
 func GhostTookCharacter():
 	amountCharacterTaken += 1;
 	_checkIfWonGame();
 
 func _checkIfWonGame():
-	if(amountCharacterTaken >= amountOfCharactersInMap):
+	if(amountCharacterTaken >= mapController.amountOfCharactersInMap.size()):
 		WinGame();
 
 func SelectCharacterFirstTime():
@@ -89,6 +97,8 @@ func StartSelectingCharacters():
 	emit_signal("enterSelectMode");
 
 func SelectCharacter(index:int):
+	mapController.GetAmountOfCharactersInMap();
+	if(mapController.amountOfCharactersInMap.size() <= 1): return
 	currentSelectedCharacter = mapController.amountOfCharactersInMap[index];
 	if(currentSelectedCharacter.isControlled):
 		index += 1;
@@ -99,6 +109,8 @@ func SelectCharacter(index:int):
 
 
 func SelectNextCharacterToFuze():
+	mapController.GetAmountOfCharactersInMap();
+	if(mapController.amountOfCharactersInMap.size() <= 1): return
 	if(currentSelectedCharacter != null):
 		currentSelectedCharacter.HideSelectedCharacter();
 	currentIndexToSelectCharacter += 1;
@@ -117,3 +129,4 @@ func EnterFuzeMode():
 
 func LeavetFuzeMode():
 	canSelectCharacters = false;
+

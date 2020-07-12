@@ -28,6 +28,8 @@ func EnterGhostToMap():
 	
 
 func FuseWithCharacter(characterToFuse):
+	mainScene.mapController.GetAmountOfCharactersInMap();
+	if(mainScene.mapController.amountOfCharactersInMap.size() <= 1): return
 	if(controlledChar != null):
 		controlledChar.isControlled = false;
 		self.global_transform.origin = controlledChar.global_transform.origin;
@@ -49,9 +51,9 @@ func FuseWithCharacter(characterToFuse):
 	yield(get_tree().create_timer(Variables.ghostSwitchCharacterSpeed), "timeout");
 	controlledChar = characterToFuse;
 	controlledChar.isControlled = true;
-	mainScene.SelectNextCharacterToFuze()
 	_canFuzeWithCharacter = true
 	self.hide();
+	mainScene.SelectNextCharacterToFuze()
 
 func DefuseWithCharacter():
 	if(mainScene.currentPlayableCharacter == null):return

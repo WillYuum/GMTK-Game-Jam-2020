@@ -24,6 +24,7 @@ func GetAmountOfCharactersInMap():
 	if(amountOfCharactersInMap.size() > 0):
 		amountOfCharactersInMap.clear();
 	amountOfCharactersInMap = currentMap.get_node("CharactersInMap").get_children();
+	print("here => ", amountOfCharactersInMap.size())
 
 func GoToNextMap():
 	SpawnMap();
