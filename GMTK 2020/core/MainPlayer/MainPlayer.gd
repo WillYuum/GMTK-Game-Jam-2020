@@ -20,17 +20,21 @@ func _ready() -> void:
 func EnterGhostToMap():
 	self.show();
 	animPlayer.play("GhostEntry");
+	_canFuzeWithCharacter = false
 	yield(get_tree().create_timer(animPlayer.get_animation("GhostEntry").length), "timeout");
 	if(Variables.firstTimePlaying):
 		mainScene.SelectCharacterFirstTime();
+	_canFuzeWithCharacter = true
 	mainScene.EnterFuzeMode();
+	mainScene.StartPanickingCharacters();
 	
 	
 
 func FuseWithCharacter(characterToFuse):
+	if(_canFuzeWithCharacter == false):return
 	mainScene.mapController.GetAmountOfCharactersInMap();
 	if(mainScene.mapController.amountOfCharactersInMap.size() <= 1): return
-	if(controlledChar != null):
+	if(controlledChar != null or is_instance_valid(controlledChar)):
 		controlledChar.isControlled = false;
 		self.global_transform.origin = controlledChar.global_transform.origin;
 	self.show();

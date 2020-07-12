@@ -16,6 +16,7 @@ onready var winScreen := UI.get_node("WinScreen");
 onready var gameEndScreen := UI.get_node("GameEndScreen");
 
 var currentLevel = 1;
+var gameIsOn = false;
 
 #for character selection
 var currentPlayableCharacter = null;
@@ -42,6 +43,8 @@ func _ready() -> void:
 #	pass
 
 func StartGame():
+	ghost.controlledChar = null
+	gameIsOn = true;
 	mapController.ReadyUpMap();
 	currentSelectedCharacter = null;
 	amountCharacterTaken = 0;
@@ -51,6 +54,7 @@ func StartGame():
 	pass
 
 func WinGame():
+	gameIsOn = false;
 	winAudio.play(0);
 	currentLevel += 1;
 	winScreen.show();
@@ -59,15 +63,16 @@ func WinGame():
 	StartGame();
 
 func LoseGame():
-	loseScreen
+	gameIsOn = false;
 	loseScreen.show();
+	LeavetFuzeMode();
 	yield(get_tree().create_timer(2),"timeout");
 	loseScreen.hide();
-	LeavetFuzeMode();
 	RestartGame();
 
 func RestartGame():
 	mapController.RestartMapEntities();
+	StartGame();
 
 func _input(event: InputEvent) -> void:
 	HandleMovingPlayableCharacter(event);
@@ -139,3 +144,7 @@ func _on_Button_pressed() -> void:
 
 func _on_Button2_pressed() -> void:
 	get_tree().quit();
+
+func StartPanickingCharacters():
+	for character in mapController.amountOfCharactersInMap:
+		character.GetReadyToFreakOut();

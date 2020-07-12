@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Characters/Character3/4- front.png" type="Texture" id=1]
 [ext_resource path="res://gameObjects/SelectIndicator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://core/Characters/Characters.gd" type="Script" id=3]
+[ext_resource path="res://core/Characters/Character3.gd" type="Script" id=3]
+[ext_resource path="res://dirs.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 133.478, 132.238 )
@@ -36,3 +37,5 @@ position = Vector2( 1000, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4.76001, 7.93341 )
 shape = SubResource( 2 )
+
+[node name="dirs" parent="." instance=ExtResource( 4 )]

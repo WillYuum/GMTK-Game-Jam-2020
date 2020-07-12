@@ -12,12 +12,15 @@ var characterBaseSpeed = 300;
 var characterSlowBaseSpeed = 100;
 var delayTillCharacterFreakOut = 0.75;
 
+var freakOutSpeed = 1.5
+var slowFreakOutSpeed = 0.75;
+
 #Obstacles(Spike)
 var timeSpikeStaysUp = 2;
 var timeToShowSpike = 4;
 
 #Character switching
-var ghostSwitchCharacterSpeed = 0.25;
+var ghostSwitchCharacterSpeed = 0.15;
 
 
 var delayTillStopFreakOut = 0.5;

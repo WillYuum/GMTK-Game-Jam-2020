@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="dirs" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 0, -530.329 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2( 0, 507.553 )
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2( 569.371, 0 )
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2( -536.836, 0 )

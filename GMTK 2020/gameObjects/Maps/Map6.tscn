@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/another wall but better-07.png" type="Texture" id=1]
 [ext_resource path="res://assets/floorr-02.png" type="Texture" id=2]
+[ext_resource path="res://gameObjects/Characters/Character3.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameObjects/Characters/Character1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameObjects/Characters/Character2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gameObjects/Exit/Exit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/wall but better-04.png" type="Texture" id=7]
+[ext_resource path="res://gameObjects/Obstacles/Lava.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gameObjects/Obstacles/StickyObtsacle.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 161.508, 825.218 )
@@ -179,14 +182,38 @@ texture = ExtResource( 7 )
 position = Vector2( -15.4094, 0 )
 shape = SubResource( 2 )
 
-[node name="Short_Wall7" type="Sprite" parent="."]
-position = Vector2( -466.93, 678.995 )
+[node name="Exit" parent="." instance=ExtResource( 6 )]
+position = Vector2( -8.20215, -551.596 )
+
+[node name="Obstacles" type="Node2D" parent="."]
+position = Vector2( -8.20215, -551.596 )
+
+[node name="Lava" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 303.108, 1006.96 )
+rotation = 3.14953
+scale = Vector2( 0.75464, 0.656967 )
+
+[node name="Lava3" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( -380.894, 1005.41 )
+rotation = 3.14953
+scale = Vector2( 0.65, 0.692 )
+
+[node name="StickyObtsacle" parent="Obstacles" instance=ExtResource( 9 )]
+position = Vector2( -364.438, 341.412 )
+scale = Vector2( 0.692255, 0.692256 )
+
+[node name="StickyObtsacle2" parent="Obstacles" instance=ExtResource( 9 )]
+position = Vector2( 318.394, 347.563 )
+scale = Vector2( 0.772255, 0.692256 )
+
+[node name="Short_Wall3" type="Sprite" parent="."]
+position = Vector2( 180.6, 676.683 )
 scale = Vector2( 0.290795, 0.407492 )
 texture = ExtResource( 7 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall7"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall7/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall3/StaticBody2D"]
 position = Vector2( -15.4094, 0 )
 shape = SubResource( 2 )
 
@@ -212,28 +239,29 @@ texture = ExtResource( 7 )
 position = Vector2( -15.4094, 0 )
 shape = SubResource( 2 )
 
-[node name="Short_Wall3" type="Sprite" parent="."]
-position = Vector2( 180.6, 676.683 )
+[node name="Short_Wall7" type="Sprite" parent="."]
+position = Vector2( -466.93, 678.995 )
 scale = Vector2( 0.290795, 0.407492 )
 texture = ExtResource( 7 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall7"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall7/StaticBody2D"]
 position = Vector2( -15.4094, 0 )
 shape = SubResource( 2 )
-
-[node name="Exit" parent="." instance=ExtResource( 6 )]
-position = Vector2( -8.20215, -551.596 )
 
 [node name="CharactersInMap" type="Node2D" parent="."]
 
 [node name="Character1" parent="CharactersInMap" instance=ExtResource( 4 )]
-position = Vector2( 235.867, 354.415 )
+position = Vector2( 34.3403, 96.621 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Character2" parent="CharactersInMap" groups=[
 "Map",
 ] instance=ExtResource( 5 )]
-position = Vector2( -287.45, 241.087 )
+position = Vector2( -397.663, 97.729 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Character3" parent="CharactersInMap" instance=ExtResource( 3 )]
+position = Vector2( 363.027, 95.894 )
 scale = Vector2( 0.3, 0.3 )

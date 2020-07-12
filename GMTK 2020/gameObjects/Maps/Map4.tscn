@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/another wall but better-07.png" type="Texture" id=1]
 [ext_resource path="res://assets/floorr-02.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gameObjects/Characters/Character2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gameObjects/Exit/Exit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/wall but better-04.png" type="Texture" id=7]
+[ext_resource path="res://gameObjects/Obstacles/Lava.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 161.508, 825.218 )
@@ -226,14 +227,32 @@ shape = SubResource( 2 )
 [node name="Exit" parent="." instance=ExtResource( 6 )]
 position = Vector2( -8.20215, -551.596 )
 
+[node name="Obstacles" type="Node2D" parent="."]
+position = Vector2( -8.20215, -551.596 )
+
+[node name="Lava" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( -397.432, 83.8324 )
+rotation = 3.14953
+scale = Vector2( 0.622573, 0.69205 )
+
+[node name="Lava2" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 380.695, 89.7051 )
+rotation = 3.14953
+scale = Vector2( 0.581623, 0.69205 )
+
+[node name="Lava3" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 10.8176, 634.246 )
+rotation = 3.14953
+scale = Vector2( 0.581623, 0.69205 )
+
 [node name="CharactersInMap" type="Node2D" parent="."]
 
 [node name="Character1" parent="CharactersInMap" instance=ExtResource( 4 )]
-position = Vector2( 235.867, 354.415 )
+position = Vector2( 215.854, 432.25 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Character2" parent="CharactersInMap" groups=[
 "Map",
 ] instance=ExtResource( 5 )]
-position = Vector2( -287.45, 241.087 )
+position = Vector2( -216.149, 433.358 )
 scale = Vector2( 0.3, 0.3 )
