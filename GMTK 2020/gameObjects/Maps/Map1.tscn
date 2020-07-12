@@ -56,14 +56,14 @@ shape = SubResource( 2 )
 [node name="CharactersInMap" type="Node2D" parent="."]
 
 [node name="Character1" parent="CharactersInMap" instance=ExtResource( 4 )]
-position = Vector2( 275.087, 506.902 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 281.404, 483.437 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="Character2" parent="CharactersInMap" groups=[
 "Map",
 ] instance=ExtResource( 5 )]
 position = Vector2( -287.45, 241.087 )
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="PointToMove" type="Node2D" parent="."]
 
