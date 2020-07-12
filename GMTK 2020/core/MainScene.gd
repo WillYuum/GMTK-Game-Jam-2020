@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func StartGame():
 	mapController.ReadyUpMap();
-	currentPlayableCharacter = null;
+	currentSelectedCharacter = null;
 	amountCharacterTaken = 0;
 	amountOfCharactersInMap = mapController.GetAmountOfCharactersInMap();
 	yield(get_tree().create_timer(2), "timeout");
@@ -55,13 +55,13 @@ func RestartGame():
 func _input(event: InputEvent) -> void:
 	HandleMovingPlayableCharacter(event);
 
-
+var currentSelectedCharacter;
 func HandleMovingPlayableCharacter(event:InputEvent):
 	if(canSelectCharacters == false): return;
 	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_TAB:
 		SelectNextCharacterToFuze();
 	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_E:
-		ghost.FuseWithCharacter(currentPlayableCharacter);
+		ghost.FuseWithCharacter(currentSelectedCharacter);
 
 
 func GhostTookCharacter():
@@ -80,20 +80,23 @@ func StartSelectingCharacters():
 	emit_signal("enterSelectMode");
 
 func SelectCharacter(index:int):
-	currentPlayableCharacter = mapController.amountOfCharactersInMap[index];
-	currentPlayableCharacter.DisplaySelectedCharacter();
+	currentSelectedCharacter = mapController.amountOfCharactersInMap[index];
+	if(currentSelectedCharacter.isControlled):
+		index += 1;
+		if(index >= mapController.amountOfCharactersInMap.size()):
+			index = 0;
+		currentSelectedCharacter = mapController.amountOfCharactersInMap[index]
+	currentSelectedCharacter.DisplaySelectedCharacter();
+
 
 func SelectNextCharacterToFuze():
-	if(currentPlayableCharacter != null):
-		currentPlayableCharacter.HideSelectedCharacter();
+	if(currentSelectedCharacter != null):
+		currentSelectedCharacter.HideSelectedCharacter();
 	currentIndexToSelectCharacter += 1;
-	
-	#ignore character that is controlled
-	if(currentPlayableCharacter.isControlled):
-		currentIndexToSelectCharacter += 1;
 	
 	if(currentIndexToSelectCharacter >= mapController.amountOfCharactersInMap.size()):
 		currentIndexToSelectCharacter = 0;
+	
 	SelectCharacter(currentIndexToSelectCharacter);
 
 func _on_TextureButton_pressed() -> void:

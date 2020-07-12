@@ -64,3 +64,65 @@ scale = Vector2( 0.2, 0.2 )
 ] instance=ExtResource( 5 )]
 position = Vector2( -287.45, 241.087 )
 scale = Vector2( 0.2, 0.2 )
+
+[node name="PointToMove" type="Node2D" parent="."]
+
+[node name="Position2D" type="Node2D" parent="PointToMove"]
+position = Vector2( -344.398, -509.422 )
+
+[node name="Position2D2" type="Node2D" parent="PointToMove"]
+position = Vector2( -133.933, -523.772 )
+
+[node name="Position2D3" type="Node2D" parent="PointToMove"]
+position = Vector2( 81.3162, -528.555 )
+
+[node name="Position2D4" type="Node2D" parent="PointToMove"]
+position = Vector2( 320.481, -535.73 )
+
+[node name="Position2D5" type="Node2D" parent="PointToMove"]
+position = Vector2( 334.831, -320.482 )
+
+[node name="Position2D6" type="Node2D" parent="PointToMove"]
+position = Vector2( 107.624, -318.09 )
+
+[node name="Position2D7" type="Node2D" parent="PointToMove"]
+position = Vector2( -361.14, -310.915 )
+
+[node name="Position2D8" type="Node2D" parent="PointToMove"]
+position = Vector2( -162.632, -315.698 )
+
+[node name="Position2D9" type="Node2D" parent="PointToMove"]
+position = Vector2( -339.615, -102.841 )
+
+[node name="Position2D10" type="Node2D" parent="PointToMove"]
+position = Vector2( -148.282, -102.841 )
+
+[node name="Position2D11" type="Node2D" parent="PointToMove"]
+position = Vector2( 126.758, -88.4911 )
+
+[node name="Position2D12" type="Node2D" parent="PointToMove"]
+position = Vector2( 353.965, -90.8828 )
+
+[node name="Position2D13" type="Node2D" parent="PointToMove"]
+position = Vector2( 339.615, 186.549 )
+
+[node name="Position2D14" type="Node2D" parent="PointToMove"]
+position = Vector2( 119.583, 150.674 )
+
+[node name="Position2D15" type="Node2D" parent="PointToMove"]
+position = Vector2( -196.115, 169.807 )
+
+[node name="Position2D16" type="Node2D" parent="PointToMove"]
+position = Vector2( -375.49, 174.591 )
+
+[node name="Position2D17" type="Node2D" parent="PointToMove"]
+position = Vector2( -377.881, 392.231 )
+
+[node name="Position2D18" type="Node2D" parent="PointToMove"]
+position = Vector2( -217.64, 401.798 )
+
+[node name="Position2D19" type="Node2D" parent="PointToMove"]
+position = Vector2( 81.3162, 411.364 )
+
+[node name="Position2D20" type="Node2D" parent="PointToMove"]
+position = Vector2( 351.573, 404.189 )

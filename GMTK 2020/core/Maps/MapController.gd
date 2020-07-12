@@ -4,6 +4,8 @@ extends Control
 onready var mainScene = get_tree().get_root().get_node("MainScene");
 onready var currentMap := get_node("Map1");
 
+var _rng = RandomNumberGenerator.new()
+
 var amountOfCharactersInMap = [];
 
 # Called when the node enters the scene tree for the first time.
@@ -35,3 +37,9 @@ func SpawnMap():
 
 func RestartMapEntities():
 	pass
+
+
+func SelectRandomPositionToMoveTo() -> Position2D:
+	var positions = currentMap.get_node("PointToMove").get_children();
+	var randInt = _rng.randi_range(0, positions.size()-1);
+	return positions[randInt];

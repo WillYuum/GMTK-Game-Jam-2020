@@ -6,7 +6,7 @@ onready var animPlayer:AnimationPlayer = get_node("AnimationPlayer");
 var _tween:Tween = Tween.new();
 
 var _canFuzeWithCharacter = true;
-
+var controlledChar;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_child(_tween);
@@ -27,6 +27,8 @@ func EnterGhostToMap():
 	
 
 func FuseWithCharacter(characterToFuse):
+	if(controlledChar != null):
+		controlledChar.isControlled = false;
 	self.show();
 	if(_canFuzeWithCharacter == false):return;
 	_tween.interpolate_property(
@@ -40,6 +42,9 @@ func FuseWithCharacter(characterToFuse):
 	);
 	_tween.start();
 	_canFuzeWithCharacter = false
+	mainScene.currentPlayableCharacter = characterToFuse;
+	controlledChar = characterToFuse;
+	controlledChar.isControlled = true;
 	yield(get_tree().create_timer(Variables.ghostSwitchCharacterSpeed), "timeout");
 	mainScene.SelectNextCharacterToFuze()
 	_canFuzeWithCharacter = true
