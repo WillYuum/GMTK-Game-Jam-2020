@@ -4,6 +4,7 @@
 [ext_resource path="res://core/Maps/MapController.gd" type="Script" id=2]
 
 [node name="MainMap" type="Control"]
+rect_scale = Vector2( 1.704, 1.704 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

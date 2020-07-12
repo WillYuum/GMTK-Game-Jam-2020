@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/another wall but better-07.png" type="Texture" id=1]
-[ext_resource path="res://assets/testAssets/Rectangle 7.svg" type="Texture" id=3]
+[ext_resource path="res://assets/floorr-02.png" type="Texture" id=2]
 [ext_resource path="res://gameObjects/Characters/Character1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameObjects/Characters/Character2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gameObjects/Exit/Exit.tscn" type="PackedScene" id=6]
@@ -16,10 +16,87 @@ extents = Vector2( 834.679, 384.348 )
 [node name="Map1" type="Node2D"]
 
 [node name="Floor" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+position = Vector2( -220.099, -429.682 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor12" type="Sprite" parent="."]
+position = Vector2( -512.297, -441.066 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor16" type="Sprite" parent="."]
+position = Vector2( 470.551, -460.04 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor2" type="Sprite" parent="."]
+position = Vector2( 211.596, -431.84 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor4" type="Sprite" parent="."]
+position = Vector2( -217.94, -75.6925 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor11" type="Sprite" parent="."]
+position = Vector2( -510.139, -87.0768 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor15" type="Sprite" parent="."]
+position = Vector2( 472.709, -106.051 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor3" type="Sprite" parent="."]
+position = Vector2( 213.754, -77.851 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor6" type="Sprite" parent="."]
+position = Vector2( -207.148, 291.248 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor10" type="Sprite" parent="."]
+position = Vector2( -499.346, 279.863 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor14" type="Sprite" parent="."]
+position = Vector2( 483.502, 260.889 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor5" type="Sprite" parent="."]
+position = Vector2( 224.546, 289.089 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor8" type="Sprite" parent="."]
+position = Vector2( -203.19, 646.269 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor9" type="Sprite" parent="."]
+position = Vector2( -495.388, 634.885 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor13" type="Sprite" parent="."]
+position = Vector2( 487.46, 615.911 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
+
+[node name="Floor7" type="Sprite" parent="."]
+position = Vector2( 228.504, 644.11 )
+scale = Vector2( 0.253521, 0.216523 )
+texture = ExtResource( 2 )
 
 [node name="LongWall" type="Sprite" parent="."]
-position = Vector2( -506.39, -417.227 )
+position = Vector2( -793.995, -401.249 )
 scale = Vector2( 0.505529, 0.602614 )
 texture = ExtResource( 1 )
 
@@ -29,7 +106,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="LongWall2" type="Sprite" parent="."]
-position = Vector2( -503.137, 321.665 )
+position = Vector2( -790.742, 337.643 )
 scale = Vector2( 0.505529, 0.602614 )
 texture = ExtResource( 1 )
 
@@ -39,7 +116,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="LongWall4" type="Sprite" parent="."]
-position = Vector2( 504.716, -415.653 )
+position = Vector2( 752.375, -423.642 )
 scale = Vector2( 0.505529, 0.602614 )
 texture = ExtResource( 1 )
 
@@ -49,7 +126,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="LongWall3" type="Sprite" parent="."]
-position = Vector2( 504.716, 339.508 )
+position = Vector2( 752.375, 331.519 )
 scale = Vector2( 0.505529, 0.602614 )
 texture = ExtResource( 1 )
 
@@ -77,6 +154,50 @@ texture = ExtResource( 7 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall2/StaticBody2D"]
+position = Vector2( -15.4094, 0 )
+shape = SubResource( 1 )
+
+[node name="Short_Wall5" type="Sprite" parent="."]
+position = Vector2( 424.935, -777.974 )
+scale = Vector2( 0.290795, 0.407492 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall5/StaticBody2D"]
+position = Vector2( -15.4094, 0 )
+shape = SubResource( 1 )
+
+[node name="Short_Wall6" type="Sprite" parent="."]
+position = Vector2( -459.341, -766.816 )
+scale = Vector2( 0.290795, 0.407492 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall6/StaticBody2D"]
+position = Vector2( -15.4094, 0 )
+shape = SubResource( 1 )
+
+[node name="Short_Wall7" type="Sprite" parent="."]
+position = Vector2( -466.93, 678.995 )
+scale = Vector2( 0.290795, 0.407492 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall7/StaticBody2D"]
+position = Vector2( -15.4094, 0 )
+shape = SubResource( 1 )
+
+[node name="Short_Wall8" type="Sprite" parent="."]
+position = Vector2( 424.843, 682.79 )
+scale = Vector2( 0.290795, 0.407492 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Short_Wall8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Short_Wall8/StaticBody2D"]
 position = Vector2( -15.4094, 0 )
 shape = SubResource( 1 )
 
