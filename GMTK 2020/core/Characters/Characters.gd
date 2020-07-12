@@ -40,7 +40,7 @@ func GetReadyToFreakOut():
 func _freakOut():
 	if(isControlled):return;
 	print("freak out")
-	var positionToMoveTo = mainScene.mapController.SelectRandomPositionToMoveTo();
+#	var positionToMoveTo = mainScene.mapController.SelectRandomPositionToMoveTo();
 	var randAngle = _rng.randf_range(0, 360.0);
 	pointToMoveTo.get_parent().rotation = randAngle;
 	isFreakingOut = true;

@@ -39,7 +39,7 @@ func RestartMapEntities():
 	pass
 
 
-func SelectRandomPositionToMoveTo() -> Position2D:
-	var positions = currentMap.get_node("PointToMove").get_children();
-	var randInt = _rng.randi_range(0, positions.size()-1);
-	return positions[randInt];
+#func SelectRandomPositionToMoveTo() -> Position2D:
+##	var positions = currentMap.get_node("PointToMove").get_children();
+#	var randInt = _rng.randi_range(0, positions.size()-1);
+#	return positions[randInt];
