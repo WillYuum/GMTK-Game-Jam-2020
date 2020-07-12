@@ -25,7 +25,7 @@ rect_scale = Vector2( 0.567883, 0.567883 )
 
 [node name="MainPlayer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1986.91, 233.302 )
-scale = Vector2( 0.116528, 0.116528 )
+scale = Vector2( 0.08, 0.08 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainPlayer"]
 anims/GhostEntry = ExtResource( 4 )
