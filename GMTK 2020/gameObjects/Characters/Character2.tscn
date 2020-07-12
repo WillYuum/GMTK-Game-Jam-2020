@@ -5,7 +5,7 @@
 [ext_resource path="res://core/Characters/Characters.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 148.936, 256.773 )
+extents = Vector2( 135.426, 149.77 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 144.176, 264.706 )
@@ -25,6 +25,7 @@ texture = ExtResource( 1 )
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( -1.948, 114.933 )
 shape = SubResource( 1 )
 
 [node name="Point" type="Node2D" parent="."]
