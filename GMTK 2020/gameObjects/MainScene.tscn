@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://core/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://gameObjects/Maps/MainMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameObjects/MainPlayer/MainPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameObjects/MainPlayer/GhostEntry.tres" type="Animation" id=4]
 [ext_resource path="res://assets/testAssets/Exit Button.png" type="Texture" id=5]
+[ext_resource path="res://assets/sfx/SFX_-_win.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/SFX_-_death.wav" type="AudioStream" id=7]
 
 [node name="MainScene" type="Control"]
 anchor_right = 1.0
@@ -50,4 +52,10 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="LoseAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 [connection signal="pressed" from="UI/TextureButton" to="." method="_on_TextureButton_pressed"]
