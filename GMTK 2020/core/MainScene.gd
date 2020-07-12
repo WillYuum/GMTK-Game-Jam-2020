@@ -58,7 +58,7 @@ func WinGame():
 	winScreen.hide();
 	StartGame();
 
-func LostGame():
+func LoseGame():
 	loseScreen
 	loseScreen.show();
 	yield(get_tree().create_timer(2),"timeout");

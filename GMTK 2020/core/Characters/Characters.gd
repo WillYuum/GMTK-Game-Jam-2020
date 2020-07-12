@@ -18,6 +18,7 @@ var _rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize();
 	add_child(timer)
 	timer.wait_time = Variables.delayTillStopFreakOut;
 	add_child(_delayTillFreakOut);
@@ -32,7 +33,7 @@ var freakOutDirection = Vector2()
 func _process(delta: float) -> void:
 	HandleMovingCharacter(delta);
 	if(isFreakingOut):
-		move_and_collide(freakOutDirection * characterSpeed * delta);
+		move_and_collide(freakOutDirection * 1 * delta);
 
 func GetReadyToFreakOut():
 	_delayTillFreakOut.start();
@@ -48,10 +49,11 @@ func _freakOut():
 #	GetReadyToFreakOut();
 
 func SlowCharacterDown():
+	print("slow player down!!!")
 	characterSpeed = Variables.characterSlowBaseSpeed;
 
 func SpeedCharaterUp():
-	var characterSpeed = Variables.characterBaseSpeed;
+	characterSpeed = Variables.characterBaseSpeed;
 
 func KillCharacter():
 	#play character death

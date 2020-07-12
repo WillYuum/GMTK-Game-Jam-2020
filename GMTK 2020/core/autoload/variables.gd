@@ -9,8 +9,8 @@ func _ready() -> void:
 
 #Characters
 var characterBaseSpeed = 300;
-var characterSlowBaseSpeed = 200;
-var delayTillCharacterFreakOut = 4;
+var characterSlowBaseSpeed = 100;
+var delayTillCharacterFreakOut = 0.75;
 
 #Obstacles(Spike)
 var timeSpikeStaysUp = 2;
