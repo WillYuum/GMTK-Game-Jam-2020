@@ -43,9 +43,9 @@ func FuseWithCharacter(characterToFuse):
 	_tween.start();
 	_canFuzeWithCharacter = false
 	mainScene.currentPlayableCharacter = characterToFuse;
+	yield(get_tree().create_timer(Variables.ghostSwitchCharacterSpeed), "timeout");
 	controlledChar = characterToFuse;
 	controlledChar.isControlled = true;
-	yield(get_tree().create_timer(Variables.ghostSwitchCharacterSpeed), "timeout");
 	mainScene.SelectNextCharacterToFuze()
 	_canFuzeWithCharacter = true
 	self.hide();

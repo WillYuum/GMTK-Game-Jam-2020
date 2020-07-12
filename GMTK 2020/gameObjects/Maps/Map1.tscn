@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/testAssets/Rectangle 9.svg" type="Texture" id=1]
 [ext_resource path="res://assets/testAssets/Rectangle 8.svg" type="Texture" id=2]
 [ext_resource path="res://assets/testAssets/Rectangle 7.svg" type="Texture" id=3]
 [ext_resource path="res://gameObjects/Characters/Character1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameObjects/Characters/Character2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gameObjects/Exit/Exit.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 423.276, 61.1718 )
@@ -126,3 +127,6 @@ position = Vector2( 81.3162, 411.364 )
 
 [node name="Position2D20" type="Node2D" parent="PointToMove"]
 position = Vector2( 351.573, 404.189 )
+
+[node name="Exit" parent="." instance=ExtResource( 6 )]
+position = Vector2( -8.20215, -551.596 )

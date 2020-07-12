@@ -13,7 +13,6 @@ var _delayTillFreakOut:Timer = Timer.new();
 var isControlled = false;
 var isFreakingOut = false;
 
-var direction;
 
 var _rng = RandomNumberGenerator.new()
 
@@ -27,22 +26,25 @@ func _ready() -> void:
 	timer.connect("timeout", self, "_stopFreakingOut");
 	GetReadyToFreakOut();
 
+var freakOutDirection = Vector2()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	HandleMovingCharacter(delta);
 	if(isFreakingOut):
-		move_and_collide(direction * characterSpeed * delta);
+		move_and_collide(freakOutDirection * characterSpeed * delta);
 
 func GetReadyToFreakOut():
 	_delayTillFreakOut.start();
 
 func _freakOut():
+	if(isControlled):return;
 	print("freak out")
 	var positionToMoveTo = mainScene.mapController.SelectRandomPositionToMoveTo();
 	var randAngle = _rng.randf_range(0, 360.0);
 	pointToMoveTo.get_parent().rotation = randAngle;
 	isFreakingOut = true;
-	direction = (pointToMoveTo.global_transform.origin - self.global_transform.origin);
+	freakOutDirection = (pointToMoveTo.global_transform.origin - self.global_transform.origin);
 #	GetReadyToFreakOut();
 
 func SlowCharacterDown():
@@ -63,3 +65,35 @@ func HideSelectedCharacter():
 
 func _stopFreakingOut():
 	isFreakingOut = false;
+
+var up = Vector2.UP;
+var down = Vector2.DOWN;
+var left = Vector2.LEFT;
+var right = Vector2.RIGHT;
+
+var velocity;
+var speed;
+func HandleMovingCharacter(delta):
+	if(isControlled == false): return;
+	freakOutDirection = Vector2();
+	var isMoving = Input.is_action_pressed("moveUp") or Input.is_action_pressed("moveRight") or Input.is_action_pressed("moveLeft") or Input.is_action_pressed("moveDown");
+	var direction = Vector2();
+	if(isMoving):
+		speed = characterSpeed;
+		if(Input.is_action_pressed("moveUp")):
+			direction += up;
+		elif(Input.is_action_pressed("moveDown")):
+			direction += down;
+		if(Input.is_action_pressed("moveLeft")):
+			direction += left;
+		elif(Input.is_action_pressed("moveRight")):
+			direction += right;
+		
+	else:
+		speed = 0;
+	
+	print(speed)
+	velocity = speed * direction.normalized() * delta
+	move_and_collide(velocity)
+	
+	

@@ -8,8 +8,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 #Characters
-var characterBaseSpeed = 0.5;
-var characterSlowBaseSpeed = 0.3;
+var characterBaseSpeed = 300;
+var characterSlowBaseSpeed = 200;
 var delayTillCharacterFreakOut = 4;
 
 #Obstacles(Spike)
